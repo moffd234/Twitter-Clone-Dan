@@ -73,6 +73,33 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(error_count, 0)
         self.assertEqual(expected, url)
 
+    def test_post(self):
+        pass
+
+    def test_post_guest(self):
+        pass
+
+    def test_profile_page(self):
+        pass
+
+    def test_feed_page(self):
+        pass
+
+    def test_about_us(self):
+        pass
+
+    def test_about_us_to_home(self):
+        pass
+
+    def test_about_us_to_profile(self):
+        pass
+
+    def test_about_us_to_feed(self):
+        pass
+
+    def test_profile_to_about(self):
+        pass
+
     @classmethod
     def tearDownClass(cls):
         # This method runs once after all tests are done
@@ -81,3 +108,4 @@ class MyTestCase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    
