@@ -1,3 +1,4 @@
+import time
 import unittest
 import os
 import selenium
@@ -80,6 +81,19 @@ class MyTestCase(unittest.TestCase):
         pass
 
     def test_profile_page(self):
+        self.test_login()  # Login and go to homepage
+
+        profile_button = self.driver.find_element(by=By.XPATH, value='//*[@id="root"]/div/div[1]/div[1]/div/a[6]/b')
+        profile_button.click()
+
+        expected_url: str = "http://localhost:8314/profile"
+        actual_url: str = self.driver.current_url
+
+        time.sleep(3)
+
+        self.assertEqual(expected_url, actual_url)
+        
+    def test_profile_page_as_guest(self):
         pass
 
     def test_feed_page(self):
@@ -108,4 +122,4 @@ class MyTestCase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    
+

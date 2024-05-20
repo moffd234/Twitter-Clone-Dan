@@ -34,7 +34,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:h2:file:./target/h2db/db/twitterClone;DB_CLOSE_DELAY=-1;MODE=MYSQL
     username: twitterClone
-    password: password
+    password:
     hikari:
       poolName: Hikari
       auto-commit: false
