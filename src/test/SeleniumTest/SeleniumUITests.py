@@ -92,7 +92,7 @@ class MyTestCase(unittest.TestCase):
         time.sleep(3)
 
         self.assertEqual(expected_url, actual_url)
-        
+
     def test_profile_page_as_guest(self):
         pass
 
@@ -113,6 +113,27 @@ class MyTestCase(unittest.TestCase):
 
     def test_profile_to_about(self):
         pass
+
+    def test_profile_to_feed(self):
+        self.test_login()  # Login and go to homepage
+
+        profile_button = self.driver.find_element(by=By.XPATH, value='//*[@id="root"]/div/div[1]/div[1]/div/a[6]/b')
+        profile_button.click()
+
+        expected_url: str = "http://localhost:8314/profile"
+        actual_url: str = self.driver.current_url
+
+        self.assertEqual(expected_url, actual_url)  # Confirm we are on the about page
+
+        home_button = self.driver.find_element(by=By.XPATH, value='//*[@id="root"]/div/div[1]/div/section[1]/div[1]'
+                                                                  '/div/div[1]/div[1]/div[2]/div[1]/div/div/div/div[1]'
+                                                                  '/div/a/div')
+        home_button.click()
+
+        expected_url: str = "http://localhost:8314/homepage"
+        actual_url: str = self.driver.current_url
+
+        self.assertEqual(expected_url, actual_url)
 
     @classmethod
     def tearDownClass(cls):
